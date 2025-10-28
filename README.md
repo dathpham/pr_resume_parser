@@ -52,7 +52,10 @@ Install the required packages using pip:
 ```bash
 uv sync
 ```
-
+### Environment Variable
+```bash
+cp .env.example .env
+```
 ## Project Structure
 
 ```

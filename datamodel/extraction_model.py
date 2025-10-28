@@ -15,7 +15,7 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 def validate_env_vars():
     missing_vars = []
     if not GOOGLE_API_KEY or GOOGLE_API_KEY == "your_google_api_key_here":
-        missing_vars.append("OPENAI_API_KEY")
+        missing_vars.append("GOOGLE_API_KEY")
 
     if missing_vars:
         raise ValueError(
