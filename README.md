@@ -83,6 +83,15 @@ extracted_data = ResumeParserFramework().parse_resume("sample.pdf")
 
 print(extracted_data.model_dump_json(indent=2))
 ```
+or with DOCX:
+
+```python
+from resume_parser import ResumeParserFramework
+
+extracted_data = ResumeParserFramework().parse_resume("sample.docx")
+
+print(extracted_data.model_dump_json(indent=2))
+```
 
 Output sample:
 
