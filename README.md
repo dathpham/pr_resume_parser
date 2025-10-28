@@ -39,6 +39,7 @@ cd pr_resume_parser
 ```
 
 2. Create and activate a virtual environment:
+   
 In Linux:
 ```bash
 uv venv
