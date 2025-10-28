@@ -1,9 +1,8 @@
 import os
 from parser.file_parser import FileParser
-
 from dotenv import load_dotenv
-
-from datamodel.extraction_model import ResumeData, ResumeExtractor
+from langchain.chat_models import init_chat_model
+from datamodel.extraction_model import ResumeData, ResumeExtractor , FieldExtractor
 from resume_parser import ResumeParserFramework
 
 load_dotenv()
@@ -18,6 +17,12 @@ def test_env():
         GOOGLE_API_KEY is not None and GOOGLE_API_KEY != "your_google_api_key_here"
     ), "GOOGLE_API_KEY is not set properly in .env file."
 
+def test_init_chat_model():
+    model = init_chat_model(
+                "gemini-2.5-flash", model_provider="google_genai", temperature=0
+            )
+    response = model.invoke("Hello")
+    assert response is not None and len(response.content) > 0, "Chat model initialization failed."
 
 # Testing FileParser, ResumeExtractor, and ResumeParserFramework
 def test_file_parser():
@@ -30,6 +35,19 @@ def test_file_parser():
         isinstance(docx_content, str) and len(docx_content) > 0
     ), "DOCX parsing failed."
 
+def test_field_extractor():
+    fe= FieldExtractor(NameExtractor ="John Doe", EmailExtractor="azxc@gmail.com",
+                       SkillsExtractor=["Python", "Machine Learning", "Data Science"])
+
+    assert fe.NameExtractor =="John Doe"
+    assert fe.EmailExtractor == 'azxc@gmail.com'
+    assert fe.SkillsExtractor == ["Python", "Machine Learning", "Data Science"]
+
+def test_resume_data():
+    fe= FieldExtractor(NameExtractor ="John Doe", EmailExtractor="azxc@gmail.com",
+                       SkillsExtractor=["Python", "Machine Learning", "Data Science"])
+    rd = ResumeData(CandidateData=fe)
+    assert rd.CandidateData == fe, "ResumeData initialization failed."
 
 def test_resume_extractor():
 

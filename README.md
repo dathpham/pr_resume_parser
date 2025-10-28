@@ -135,30 +135,7 @@ To install pre-commit run the following command:
 pre-commit install
 ```
 
-Create a `.pre-commit-config.yaml` file in your project root:
-
-```yaml
-repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
-    hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: check-yaml
-      - id: check-added-large-files
-
-  - repo: https://github.com/psf/black
-    rev: 23.3.0
-    hooks:
-      - id: black
-
-  - repo: https://github.com/pycqa/flake8
-    rev: 6.0.0
-    hooks:
-      - id: flake8
-```
-
-The pre-commit hooks will run automatically on `git commit`. To run manually:
+To run manually:
 
 ```bash
 pre-commit run --all-files
