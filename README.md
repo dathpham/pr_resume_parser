@@ -47,7 +47,7 @@ source .venv/bin/activate
 
 ### Installing Dependencies
 
-Install the required packages using pip:
+Install the required packages using uv:
 
 ```bash
 uv sync
