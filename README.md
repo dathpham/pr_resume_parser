@@ -11,14 +11,14 @@ graph TD
     subgraph Parser Module
     B --> B1[Raw Text]
     end
-    B1 --> LLM
+    B1 --> L[Configurable Extractor - LLM]
 
     subgraph Data Model
     B2[Field Extraction Schema] --> B3[Resume Data Model]
 
     end
-    B3[Resume Data Model]--> LLM
-    LLM --> E[Structured Resume Data Class]
+    B3[Resume Data Model]--> L[Configurable Extractor - LLM]
+    L[Configurable Extractor - LLM] --> E[Structured Resume Data Class]
 
 ```
 
