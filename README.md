@@ -39,20 +39,25 @@ cd pr_resume_parser
 ```
 
 2. Create and activate a virtual environment:
-
+In Linux:
 ```bash
 uv venv
 source .venv/bin/activate
 ```
-
+In Window:
+```bash
+uv venv
+.venv/Scripts/activate.ps1
+```
 ### Installing Dependencies
 
-Install the required packages using uv:
+Sync the required packages using uv:
 
 ```bash
 uv sync
 ```
 ### Environment Variable
+Create a copy of env file and put your google api key in
 ```bash
 cp .env.example .env
 ```
@@ -75,7 +80,7 @@ pr_resume_parser/
 
 1. Place your resume file in the input directory
 2. Run the parser:
-
+with PDF:
 ```python
 from resume_parser import ResumeParserFramework
 
