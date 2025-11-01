@@ -1,6 +1,6 @@
-# Resume Parser
+# Document Parser
 
-A Python-based resume parsing system that extracts structured information from resume documents.
+Structured document parsing and extraction with Langchain LLM and Pydantic data model
 
 ## System Architecture
 
